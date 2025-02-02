@@ -24,7 +24,7 @@ cd <repository-folder>
 1. Ensure JDK and Gradle are installed.
 2. Run `gradle build` to download dependencies.
 
-### 3. Run the Mock API
+### 3. Run the Mock API (DEPRECATED)
 (Optional if testing against a real API.)
 ```bash
 node mock-api.js
@@ -33,24 +33,25 @@ node mock-api.js
 ### 4. Run the Tests
 Run the tests using Gradle:
 ```bash
-gradle test
+./gradlew test
 ```
 
 ## Project Structure
-- **`src/test/java`**: Contains the test cases written with Rest Assured.
+- **`java/com/example/dragonballPowerLevel`**: Contains the test cases written with Rest Assured.
 - **`build.gradle`**: Dependency and project configuration.
 
 ## Example Test Case
 Sample GET test:
 ```java
-@Test
-public void testGetEndpoint() {
+    @Test
+    public void testGetDragonBallData() {
     given()
-        .when()
-            .get("/api/data")
-        .then()
+            .when()
+            .get("/api/dragonball/data")
+            .then()
             .statusCode(200)
-            .body("message", equalTo("Hello, World!"));
+            .body("character", equalTo("Goku"))
+            .body("powerLevel", equalTo("Over 9000!"));
 }
 ```
 
