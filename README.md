@@ -30,7 +30,13 @@ cd <repository-folder>
 node mock-api.js
 ```
 
-### 4. Run the Tests
+### 4. Access Swagger Documentation
+Once the service is running, open the following URLs:
+- **Swagger UI:** [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+- **OpenAPI JSON:** [http://localhost:8080/v3/api-docs](http://localhost:8080/v3/api-docs)
+
+
+### 5. Run the Tests
 Run the tests using Gradle:
 ```bash
 ./gradlew test
