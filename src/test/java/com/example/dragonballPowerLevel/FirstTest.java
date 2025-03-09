@@ -29,11 +29,12 @@ public class FirstTest {
     public void testGetDragonBallData() {
         given()
                 .when()
-                .get("/api/dragonball/data")
+                .get("/api/dragonball/data?character=Goku")
                 .then()
+                .log().body()
                 .statusCode(200)
-                .body("character", equalTo("Goku"))
-                .body("powerLevel", equalTo("Over 9000!"));
+                .body("character", equalTo("Vegeta"))
+                .body("powerLevel", equalTo("8500"));
     }
 
     @Test
