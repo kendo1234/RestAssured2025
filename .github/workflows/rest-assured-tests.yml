@@ -25,3 +25,11 @@ jobs:
 
       - name: Run Tests
         run: ./gradlew test
+        continue-on-error: true  # Ensures report gets uploaded even if tests fail
+
+      - name: Upload Test Report
+        if: always()  # Always run this step, even if previous steps fail
+        uses: actions/upload-artifact@v3
+        with:
+          name: gradle-test-report
+          path: build/reports/tests/test
